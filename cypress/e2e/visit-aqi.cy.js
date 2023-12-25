@@ -37,5 +37,18 @@ describe('template spec', () => {
         throw new Error("Mission text not found")
       }
     })
-  })  
+  })
+
+  it.only('Menuju sosial media facebook', () => {
+    cy.get('a[href="https://www.facebook.com/AsiaQuest"]')
+      .invoke('removeAttr', 'target')
+      .then(($element) => {
+        const href = $element.attr('href')
+        cy.visit(href)
+        if (!href.includes('/AsiaQuest')) {
+              cy.log(url)
+              throw new Error('Halaman sosial media tidak ditemukan')
+        }
+      })
+  })
 })
