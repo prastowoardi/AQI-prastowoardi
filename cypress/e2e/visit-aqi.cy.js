@@ -39,7 +39,7 @@ describe('template spec', () => {
     })
   })
 
-  it.only('Menuju sosial media facebook', () => {
+  it('Menuju sosial media facebook', () => {
     cy.get('a[href="https://www.facebook.com/AsiaQuest"]')
       .invoke('removeAttr', 'target')
       .then(($element) => {
